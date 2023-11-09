@@ -1,17 +1,13 @@
-chrome.contextMenus.create({
-  id: "foo",
-  title: "Click me",
-  contexts: ["action"],
+searchTerapeak = function () {
+  console.log("Triggered");
+};
+
+chrome.contextMenus.removeAll(function () {
+  chrome.contextMenus.create({
+    id: "1",
+    title: "Sync data from buff 163",
+    contexts: ["all"], // ContextType
+  });
 });
 
-function contextClick(info, tab) {
-  const { menuItemId } = info;
-
-  console.log(menuItemId);
-  if (menuItemId === "foo") {
-    // do something
-    console.log("Clicked from context menu");
-  }
-}
-
-chrome.contextMenus.onClicked.addListener(contextClick);
+chrome.contextMenus.onClicked.addListener(searchTerapeak);
